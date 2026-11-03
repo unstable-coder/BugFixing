@@ -26,9 +26,8 @@ const createGenre = asyncHandler(async (req, res) => {
 const updateGenre = asyncHandler(async (req, res) => {
   try {
     const { name } = req.body;
-    const { id } = req.params;
 
-    const genre = await Genre.findOne({ _id: id });
+    const genre =  Genre.findOne({ _id: id });
 
     if (!genre) {
       return res.status(404).json({ error: "Genre not found" });
