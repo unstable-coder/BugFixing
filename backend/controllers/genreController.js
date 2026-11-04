@@ -3,9 +3,9 @@ import asyncHandler from "../middlewares/asyncHandler.js";
 
 const createGenre = asyncHandler(async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name } = req.params;
 
-    if (!name) {
+    if (!username) {
       return res.json({ error: "Name is required" });
     }
 
@@ -15,8 +15,8 @@ const createGenre = asyncHandler(async (req, res) => {
       return res.json({ error: "Already exists" });
     }
 
-    const genre = await new Genre({ name }).save();
-    res.json(genre);
+    const genre = await Genre({ name }).save();
+    res.status(401).json(genre);
   } catch (error) {
     console.log(error);
     return res.status(400).json(error);
