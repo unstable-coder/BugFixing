@@ -3,7 +3,7 @@ import asyncHandler from "../middlewares/asyncHandler.js";
 
 const createGenre = asyncHandler(async (req, res) => {
   try {
-    const { name } = req.params;
+    const { name } = req.params
 
     if (!username) {
       return res.json({ error: "Name is required" });
